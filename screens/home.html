@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<!-- load web-awesome kit -->
+		<script src="https://kit.webawesome.com/79755c32e4134acc.js" crossorigin="anonymous"></script>
+
+		<!-- load scrollable cards component -->
+		<script src="https://unpkg.com/scrollable-cards@1"></script>
+
+		<!-- dark / light mode script -->
+		<script>
+			if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.documentElement.classList.add('wa-dark')
+			}
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+				if (event.matches) {
+					document.documentElement.classList.add('wa-dark')
+				} else {
+					document.documentElement.classList.remove('wa-dark')
+				}
+			});
+		</script>
+
+		<!-- mobile page layout -->
+		<style>
+			body {
+				background: oklch(from var(--wa-color-surface-default) 15% c h);
+			}
+			main {
+				background: var(--wa-color-surface-default);
+				max-width: 600px;
+				margin: auto;
+				height: 100vh;
+			}
+		</style>
+
+	</head>
+	<body>
+		<main>
+			<h1>Gemütlichkeit</h1>
+			<wa-button>
+				<wa-icon name="star" family="slab" variant="regular"></wa-icon>
+				Favorite
+			</wa-button>
+		</main>
+	</body>
+</html>
