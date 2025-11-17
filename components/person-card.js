@@ -12,6 +12,14 @@ personCardStyleSheet.replaceSync(/*css*/ `
 		width: 100px;
 		align-items: center;
 	}
+	
+	person-card-name {
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+		width: 100%;
+		text-align: center;
+	}
 
 	wa-avatar {
 		--size: 64px;
@@ -27,12 +35,15 @@ class PersonCard extends HTMLElement {
 	}
 
 	connectedCallback() {
+		const name = this.getAttribute('name');
+		const lastName = name.split(' ').at(-1);
+		const truncatedName = name.replace(lastName, lastName.at(0));
 		this.shadowRoot.innerHTML = /*html*/ `
 			<person-card-container>
-				<wa-avatar initials="TH" label="Avatar with initials: TH"></wa-avatar>
-				<span>Tina Howard</span>
+				<wa-avatar label="To be built" image="${this.getAttribute('avatar')}"></wa-avatar>
+				<person-card-name>${truncatedName}</person-card-name>
 				<wa-tag size="small" pill>
-					<wa-format-date month="long" day="numeric" year="numeric" date="2020-07-15T09:17:00-04:00"></wa-format-date>
+					<wa-format-date month="long" day="numeric" year="numeric" date="${this.getAttribute('date')}"></wa-format-date>
 				</wa-tag>
 			</person-card-container>
 		`;
