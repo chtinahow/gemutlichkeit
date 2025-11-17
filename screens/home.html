@@ -6,16 +6,19 @@
 		<!-- load scrollable cards component -->
 		<script src="https://unpkg.com/scrollable-cards@1"></script>
 
+		<!-- load components -->
+		<script src="../components/person-card.js"></script>
+
 		<!-- dark / light mode script -->
 		<script>
 			if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-				document.documentElement.classList.add('wa-dark')
+				document.documentElement.classList.add('wa-dark');
 			}
-			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
 				if (event.matches) {
-					document.documentElement.classList.add('wa-dark')
+					document.documentElement.classList.add('wa-dark');
 				} else {
-					document.documentElement.classList.remove('wa-dark')
+					document.documentElement.classList.remove('wa-dark');
 				}
 			});
 		</script>
@@ -33,14 +36,34 @@
 			}
 		</style>
 
+		<!-- style scrollable-cards  -->
+		<style>
+			sc-card {
+				width: 100px;
+				padding-right: 1em;
+			}
+		</style>
 	</head>
 	<body>
 		<main>
+			<!-- tags we'll need, but don't want to load right here -->
+			<web-awesome-tags style="display: none" inert>
+				<wa-avatar></wa-avatar>
+				<wa-tag></wa-tag>
+				<wa-format-date></wa-format-date>
+			</web-awesome-tags>
+
 			<h1>Gemütlichkeit</h1>
 			<wa-button>
 				<wa-icon name="star" family="slab" variant="regular"></wa-icon>
 				Favorite
 			</wa-button>
+
+			<sc-container>
+				<sc-card><person-card></person-card></sc-card>
+				<sc-card>Second Card</sc-card>
+				<sc-card>Third Card</sc-card>
+			</sc-container>
 		</main>
 	</body>
 </html>
