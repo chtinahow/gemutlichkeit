@@ -3,6 +3,15 @@
 		<!-- load web-awesome kit -->
 		<script src="https://kit.webawesome.com/79755c32e4134acc.js" crossorigin="anonymous"></script>
 
+		<!-- load web-awesome components that aren't immediately exposed -->
+		<script type="module">
+			import { discover } from 'https://unpkg.com/@awesome.me/webawesome@3/dist-cdn/webawesome.loader.js';
+
+			discover(document.createElement('wa-avatar'));
+			discover(document.createElement('wa-tag'));
+			discover(document.createElement('wa-format-date'));
+		</script>
+
 		<!-- load scrollable cards component -->
 		<script src="https://unpkg.com/scrollable-cards@1"></script>
 
@@ -46,13 +55,6 @@
 	</head>
 	<body>
 		<main>
-			<!-- tags we'll need, but don't want to load right here -->
-			<web-awesome-tags style="display: none" inert>
-				<wa-avatar></wa-avatar>
-				<wa-tag></wa-tag>
-				<wa-format-date></wa-format-date>
-			</web-awesome-tags>
-
 			<h1>Gemütlichkeit</h1>
 			<wa-button>
 				<wa-icon name="star" family="slab" variant="regular"></wa-icon>
