@@ -1,0 +1,159 @@
+<html lang="en">
+	<head>
+		<title>Gemütlichkeit</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+
+		<!-- load web-awesome kit -->
+		<script src="https://kit.webawesome.com/79755c32e4134acc.js" crossorigin="anonymous"></script>
+
+		<!-- load web-awesome components that aren't immediately exposed -->
+		<script type="module">
+			import { discover } from 'https://unpkg.com/@awesome.me/webawesome@3/dist-cdn/webawesome.loader.js';
+
+			discover(document.createElement('wa-avatar'));
+			discover(document.createElement('wa-badge'));
+			discover(document.createElement('wa-format-date'));
+			discover(document.createElement('wa-input'));
+		</script>
+
+		<!-- load scrollable cards component -->
+		<script src="https://unpkg.com/scrollable-cards@1"></script>
+
+		<!-- load components -->
+
+		<!-- dark / light mode script -->
+		<script>
+			if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.documentElement.classList.add('wa-dark');
+			}
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+				if (event.matches) {
+					document.documentElement.classList.add('wa-dark');
+				} else {
+					document.documentElement.classList.remove('wa-dark');
+				}
+			});
+		</script>
+
+		<!-- mobile page layout -->
+		<style>
+			body {
+				background: oklch(from var(--wa-color-surface-default) 15% c h);
+			}
+
+			main {
+				background: var(--wa-color-surface-default);
+				max-width: 600px;
+				margin: auto;
+				min-height: 100vh;
+				padding: 0.5em;
+
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 1em;
+			}
+		</style>
+
+		<!-- floating favorite button -->
+		<style>
+			main {
+				position: relative;
+			}
+			wa-button {
+				position: absolute;
+				top: 0.5em;
+				right: 1em;
+			}
+		</style>
+
+		<!-- person page styles -->
+		<style>
+			person-title {
+				display: flex;
+				flex-direction: column;
+				gap: 0.2em;
+				text-align: center;
+				align-items: center;
+			}
+			person-title wa-badge {
+				width: fit-content;
+				padding-left: 2em;
+				padding-right: 2em;
+			}
+			h1 {
+				margin: 0;
+			}
+			wa-avatar {
+				--size: 120px;
+			}
+			#location-badge {
+				font-size: 1.2em;
+			}
+			h2 {
+				font-size: 1.5em;
+				align-self: flex-start;
+				text-align: start;
+			}
+
+			input-group {
+				display: grid;
+				grid-template-columns: auto 1fr;
+				align-items: center;
+				gap: 1em;
+				width: 100%;
+
+				label {
+					grid-column: 1 / 1;
+				}
+
+				input {
+					grid-column: 2 / 2;
+				}
+			}
+			input-row {
+				display: grid;
+				grid-column: 1 / -1;
+				grid-template-columns: subgrid;
+				align-items: center;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<person-title>
+				<h1>Tina Howard</h1>
+				<wa-badge variant="neutral" pill>she/her</wa-badge>
+			</person-title>
+
+			<wa-button variant="neutral" appearance="outlined" pill aria-label="favorite this person">
+				<wa-icon name="star" family="slab" variant="regular"></wa-icon>
+			</wa-button>
+
+			<wa-avatar image="https://api.dicebear.com/9.x/thumbs/svg?seed=Tina%20Howard"></wa-avatar>
+			<wa-badge id="location-badge" variant="neutral">Burlington, MA</wa-badge>
+			<div>
+				Last Meetup
+				<wa-badge appearance="filled-outlined" variant="neutral" pill>
+					<wa-format-date month="short" day="numeric" year="numeric" date="2020-07-15T09:17:00-04:00"></wa-format-date>
+				</wa-badge>
+			</div>
+			<h2>Allergens & Preferences</h2>
+			<input-group>
+				<input-row>
+					<label for="allergies-input">Allergies</label>
+					<input id="allergies-input" type="text" />
+				</input-row>
+				<input-row>
+					<label for="likes-input">Likes</label>
+					<input id="likes-input" type="text" />
+				</input-row>
+				<input-row>
+					<label for="dislikes-input">Dislikes</label>
+					<input id="dislikes-input" type="text" />
+				</input-row>
+			</input-group>
+		</main>
+	</body>
+</html>

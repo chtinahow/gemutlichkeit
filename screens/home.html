@@ -40,14 +40,20 @@
 
 		<!-- mobile page layout -->
 		<style>
+			h1 {
+				text-align: center;
+			}
+
 			body {
 				background: oklch(from var(--wa-color-surface-default) 15% c h);
 			}
+
 			main {
 				background: var(--wa-color-surface-default);
 				max-width: 600px;
 				margin: auto;
-				height: 100vh;
+				min-height: 100vh;
+				padding: 0.5em;
 			}
 		</style>
 
@@ -67,10 +73,6 @@
 	<body>
 		<main>
 			<h1>Gemütlichkeit</h1>
-			<wa-button>
-				<wa-icon name="star" family="slab" variant="regular"></wa-icon>
-				Favorite
-			</wa-button>
 
 			<h2>Friends</h2>
 			<sc-container>
