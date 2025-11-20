@@ -1,8 +1,8 @@
 const eventInviteeStyleSheet = new CSSStyleSheet();
 eventInviteeStyleSheet.replaceSync(/*css*/ `
 	wa-avatar {
-    border: solid 2px var(--wa-color-surface-default);
-		--size: 50px;
+		border: var(--avatar-border);
+		--size: var(--avatar-size);
 	}
 `);
 

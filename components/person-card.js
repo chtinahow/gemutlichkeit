@@ -24,6 +24,10 @@ personCardStyleSheet.replaceSync(/*css*/ `
 	wa-avatar {
 		--size: 64px;
 	}
+
+	wa-badge {
+		width: 100%;
+	}
 `);
 
 class PersonCard extends HTMLElement {
