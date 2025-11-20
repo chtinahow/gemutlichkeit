@@ -40,11 +40,11 @@ class PersonCard extends HTMLElement {
 		const truncatedName = name.replace(lastName, lastName.at(0));
 		this.shadowRoot.innerHTML = /*html*/ `
 			<person-card-container>
-				<wa-avatar label="To be built" image="${this.getAttribute('avatar')}"></wa-avatar>
+				<wa-avatar label="${this.getAttribute('name')}" image="${this.getAttribute('avatar')}"></wa-avatar>
 				<person-card-name>${truncatedName}</person-card-name>
-				<wa-tag size="small" pill>
+				<wa-badge appearance="filled-outlined" variant="neutral" pill>
 					<wa-format-date month="short" day="numeric" year="numeric" date="${this.getAttribute('date')}"></wa-format-date>
-				</wa-tag>
+				</wa-badge>
 			</person-card-container>
 		`;
 	}

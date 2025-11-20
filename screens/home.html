@@ -12,7 +12,7 @@
 			import { discover } from 'https://unpkg.com/@awesome.me/webawesome@3/dist-cdn/webawesome.loader.js';
 
 			discover(document.createElement('wa-avatar'));
-			discover(document.createElement('wa-tag'));
+			discover(document.createElement('wa-badge'));
 			discover(document.createElement('wa-format-date'));
 		</script>
 
@@ -21,6 +21,8 @@
 
 		<!-- load components -->
 		<script src="../components/person-card.js"></script>
+		<script src="../components/event-card.js"></script>
+		<script src="../components/event-invitee.js"></script>
 
 		<!-- dark / light mode script -->
 		<script>
@@ -51,8 +53,13 @@
 
 		<!-- style scrollable-cards  -->
 		<style>
-			sc-card {
+			sc-card:has(person-card) {
 				width: 100px;
+				padding-right: 1em;
+			}
+
+			sc-card:has(event-card) {
+				width: 150px;
 				padding-right: 1em;
 			}
 		</style>
@@ -80,7 +87,6 @@
 						avatar="https://api.dicebear.com/9.x/thumbs/svg?seed=Jesse%20Jurman"
 					></person-card>
 				</sc-card>
-
 				<sc-card>
 					<person-card
 						name="Bill Tarr"
@@ -94,6 +100,40 @@
 						date="2020-07-25T09:17:00-04:00"
 						avatar="https://api.dicebear.com/9.x/thumbs/svg?seed=Katie%20Walker"
 					></person-card>
+				</sc-card>
+				<sc-card>
+					<person-card
+						name="Jackie Dubin"
+						date="2020-07-25T09:17:00-04:00"
+						avatar="https://api.dicebear.com/9.x/thumbs/svg?seed=Jackie%20Dubin"
+					></person-card>
+				</sc-card>
+			</sc-container>
+
+			<sc-container>
+				<sc-card>
+					<event-card name="Halloween Bash" date="2020-10-31T09:17:00-04:00">
+						<event-invitee
+							name="Katie Walker"
+							avatar="https://api.dicebear.com/9.x/thumbs/svg?seed=Katie%20Walker"
+						></event-invitee>
+						<event-invitee
+							name="Bill Tarr"
+							avatar="https://api.dicebear.com/9.x/thumbs/svg?seed=Bill%20Tarr"
+						></event-invitee>
+						<event-invitee
+							name="Jesse Jurman"
+							avatar="https://api.dicebear.com/9.x/thumbs/svg?seed=Jesse%20Jurman"
+						></event-invitee>
+						<event-invitee
+							name="Tina Howard"
+							avatar="https://api.dicebear.com/9.x/thumbs/svg?seed=Tina%20Howard"
+						></event-invitee>
+						<event-invitee
+							name="Jackie Dubin"
+							avatar="https://api.dicebear.com/9.x/thumbs/svg?seed=Jackie%20Dubin"
+						></event-invitee>
+					</event-card>
 				</sc-card>
 			</sc-container>
 		</main>
