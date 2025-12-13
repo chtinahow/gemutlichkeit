@@ -26,6 +26,7 @@
 		<script src="../scripts/light-dark.js"></script>
 
 		<link href="../styles/layout.css" rel="stylesheet" />
+		<link href="../styles/input-grid.css" rel="stylesheet" />
 
 		<!-- floating favorite button -->
 		<style>
@@ -71,28 +72,6 @@
 				font-size: 1.5em;
 				align-self: flex-start;
 				text-align: start;
-			}
-
-			input-group {
-				display: grid;
-				grid-template-columns: auto 1fr;
-				align-items: center;
-				gap: 1em;
-				width: 100%;
-
-				label {
-					grid-column: 1 / 1;
-				}
-
-				input {
-					grid-column: 2 / 2;
-				}
-			}
-			input-row {
-				display: grid;
-				grid-column: 1 / -1;
-				grid-template-columns: subgrid;
-				align-items: center;
 			}
 		</style>
 	</head>

@@ -1,0 +1,21 @@
+input-group {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	align-items: center;
+	gap: 1em;
+	width: 100%;
+
+	label {
+		grid-column: 1 / 1;
+	}
+
+	input {
+		grid-column: 2 / 2;
+	}
+}
+input-row {
+	display: grid;
+	grid-column: 1 / -1;
+	grid-template-columns: subgrid;
+	align-items: center;
+}
