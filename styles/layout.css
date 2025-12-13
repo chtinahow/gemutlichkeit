@@ -1,0 +1,15 @@
+body {
+	background: oklch(from var(--wa-color-surface-default) 15% c h);
+}
+
+main {
+	background: var(--wa-color-surface-default);
+	max-width: 600px;
+	margin: auto;
+	min-height: 100vh;
+	padding: 0.5em;
+
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}

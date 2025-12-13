@@ -25,48 +25,15 @@
 		<script src="../components/event-invitee.js"></script>
 
 		<!-- dark / light mode script -->
-		<script>
-			if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-				document.documentElement.classList.add('wa-dark');
-			}
-			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
-				if (event.matches) {
-					document.documentElement.classList.add('wa-dark');
-				} else {
-					document.documentElement.classList.remove('wa-dark');
-				}
-			});
-		</script>
+		<script src="../scripts/light-dark.js"></script>
+
+		<link href="../styles/layout.css" rel="stylesheet" />
+		<link href="../styles/sc-card.css" rel="stylesheet" />
 
 		<!-- mobile page layout -->
 		<style>
 			h1 {
 				text-align: center;
-			}
-
-			body {
-				background: oklch(from var(--wa-color-surface-default) 15% c h);
-			}
-
-			main {
-				background: var(--wa-color-surface-default);
-				max-width: 600px;
-				margin: auto;
-				min-height: 100vh;
-				padding: 0.5em;
-			}
-		</style>
-
-		<!-- style scrollable-cards  -->
-		<style>
-			sc-card:has(person-card) {
-				width: 100px;
-				padding-right: 1em;
-			}
-
-			sc-card:has(event-card) {
-				width: 150px;
-				padding-right: 1em;
 			}
 		</style>
 	</head>

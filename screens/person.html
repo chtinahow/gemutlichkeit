@@ -1,6 +1,6 @@
 <html lang="en">
 	<head>
-		<title>Gemütlichkeit</title>
+		<title>Tina Howard</title>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 
@@ -23,38 +23,9 @@
 		<!-- load components -->
 
 		<!-- dark / light mode script -->
-		<script>
-			if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-				document.documentElement.classList.add('wa-dark');
-			}
-			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
-				if (event.matches) {
-					document.documentElement.classList.add('wa-dark');
-				} else {
-					document.documentElement.classList.remove('wa-dark');
-				}
-			});
-		</script>
+		<script src="../scripts/light-dark.js"></script>
 
-		<!-- mobile page layout -->
-		<style>
-			body {
-				background: oklch(from var(--wa-color-surface-default) 15% c h);
-			}
-
-			main {
-				background: var(--wa-color-surface-default);
-				max-width: 600px;
-				margin: auto;
-				min-height: 100vh;
-				padding: 0.5em;
-
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				gap: 1em;
-			}
-		</style>
+		<link href="../styles/layout.css" rel="stylesheet" />
 
 		<!-- floating favorite button -->
 		<style>
@@ -87,9 +58,14 @@
 			}
 			wa-avatar {
 				--size: 120px;
+				align-self: center;
 			}
 			#location-badge {
 				font-size: 1.2em;
+				align-self: center;
+			}
+			#last-meetup {
+				align-self: center;
 			}
 			h2 {
 				font-size: 1.5em;
@@ -131,9 +107,9 @@
 				<wa-icon name="star" family="slab" variant="regular"></wa-icon>
 			</wa-button>
 
-			<wa-avatar image="https://api.dicebear.com/9.x/thumbs/svg?seed=Tina%20Howard"></wa-avatar>
+			<wa-avatar label="Tina Howard" image="https://api.dicebear.com/9.x/thumbs/svg?seed=Tina%20Howard"></wa-avatar>
 			<wa-badge id="location-badge" variant="neutral">Burlington, MA</wa-badge>
-			<div>
+			<div id="last-meetup">
 				Last Meetup
 				<wa-badge appearance="filled-outlined" variant="neutral" pill>
 					<wa-format-date month="short" day="numeric" year="numeric" date="2020-07-15T09:17:00-04:00"></wa-format-date>

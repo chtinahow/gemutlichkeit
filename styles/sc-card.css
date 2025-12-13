@@ -1,0 +1,13 @@
+sc-card:has(person-card) {
+	width: 100px;
+	padding-right: 1em;
+}
+
+sc-card:has(event-card) {
+	width: 150px;
+	padding-right: 1em;
+}
+
+sc-container {
+	width: 100%;
+}
