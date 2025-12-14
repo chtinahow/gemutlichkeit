@@ -1,0 +1,25 @@
+{
+	"name": "gemutlichkeit",
+	"version": "1.0.0",
+	"module": "src/index.js",
+	"private": true,
+	"scripts": {
+		"dev": "bun run --watch server/server.ts"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/chtinahow/gemutlichkeit.git"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/chtinahow/gemutlichkeit/issues"
+	},
+	"homepage": "https://github.com/chtinahow/gemutlichkeit#readme",
+	"description": "",
+	"dependencies": {
+		"@elysiajs/html": "^1.4.0",
+		"@elysiajs/static": "^1.4.7",
+		"bun-types": "^1.3.4",
+		"elysia": "^1.4.19"
+	}
+}

@@ -1,3 +1,5 @@
+export default () => {
+	return /*html*/ `
 <html lang="en">
 	<head>
 		<title>Tina Howard</title>
@@ -23,10 +25,10 @@
 		<!-- load components -->
 
 		<!-- dark / light mode script -->
-		<script src="../scripts/light-dark.js"></script>
+		<script src="public/scripts/light-dark.js"></script>
 
-		<link href="../styles/layout.css" rel="stylesheet" />
-		<link href="../styles/input-grid.css" rel="stylesheet" />
+		<link href="public/styles/layout.css" rel="stylesheet" />
+		<link href="public/styles/input-grid.css" rel="stylesheet" />
 
 		<!-- floating favorite button -->
 		<style>
@@ -112,3 +114,5 @@
 		</main>
 	</body>
 </html>
+`;
+};

@@ -1,3 +1,5 @@
+export default () => {
+	return /*html*/ `
 <html lang="en">
 	<head>
 		<title>Gemütlichkeit</title>
@@ -20,15 +22,15 @@
 		<script src="https://unpkg.com/scrollable-cards@1"></script>
 
 		<!-- load components -->
-		<script src="../components/person-card.js"></script>
-		<script src="../components/event-card.js"></script>
-		<script src="../components/event-invitee.js"></script>
+		<script src="public/components/person-card.js"></script>
+		<script src="public/components/event-card.js"></script>
+		<script src="public/components/event-invitee.js"></script>
 
 		<!-- dark / light mode script -->
-		<script src="../scripts/light-dark.js"></script>
+		<script src="public/scripts/light-dark.js"></script>
 
-		<link href="../styles/layout.css" rel="stylesheet" />
-		<link href="../styles/sc-card.css" rel="stylesheet" />
+		<link href="public/styles/layout.css" rel="stylesheet" />
+		<link href="public/styles/sc-card.css" rel="stylesheet" />
 
 		<!-- mobile page layout -->
 		<style>
@@ -146,3 +148,5 @@
 		</main>
 	</body>
 </html>
+	`;
+};
