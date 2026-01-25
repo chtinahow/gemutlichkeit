@@ -1,8 +1,10 @@
-export default () => {
+import { PersonDetails } from '../server/mockDB';
+
+export default (person: PersonDetails) => {
 	return /*html*/ `
 <html lang="en">
 	<head>
-		<title>Tina Howard</title>
+		<title>${person.name}</title>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 
@@ -25,10 +27,10 @@ export default () => {
 		<!-- load components -->
 
 		<!-- dark / light mode script -->
-		<script src="public/scripts/light-dark.js"></script>
+		<script src="/public/scripts/light-dark.js"></script>
 
-		<link href="public/styles/layout.css" rel="stylesheet" />
-		<link href="public/styles/input-grid.css" rel="stylesheet" />
+		<link href="/public/styles/layout.css" rel="stylesheet" />
+		<link href="/public/styles/input-grid.css" rel="stylesheet" />
 
 		<!-- floating favorite button -->
 		<style>
@@ -80,20 +82,19 @@ export default () => {
 	<body>
 		<main>
 			<person-title>
-				<h1>Tina Howard</h1>
-				<wa-badge variant="neutral" pill>she/her</wa-badge>
+				<h1>${person.name}</h1>
+				<wa-badge variant="neutral" pill>${person.pronouns}</wa-badge>
 			</person-title>
 
 			<wa-button variant="neutral" appearance="outlined" pill aria-label="favorite this person">
 				<wa-icon name="star" family="slab" variant="regular"></wa-icon>
 			</wa-button>
-
-			<wa-avatar label="Tina Howard" image="https://api.dicebear.com/9.x/thumbs/svg?seed=Tina%20Howard"></wa-avatar>
-			<wa-badge id="location-badge" variant="neutral">Burlington, MA</wa-badge>
+			<wa-avatar label="${person.name}" image="${person.avatarURL}"></wa-avatar>
+			<wa-badge id="location-badge" variant="neutral">${person.location}</wa-badge>
 			<div id="last-meetup">
 				Last Meetup
 				<wa-badge appearance="filled-outlined" variant="neutral" pill>
-					<wa-format-date month="short" day="numeric" year="numeric" date="2020-07-15T09:17:00-04:00"></wa-format-date>
+					<wa-format-date month="short" day="numeric" year="numeric" date="${person.lastMeetupDate}"></wa-format-date>
 				</wa-badge>
 			</div>
 			<h2>Allergens & Preferences</h2>

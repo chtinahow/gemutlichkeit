@@ -4,13 +4,17 @@ personCardStyleSheet.replaceSync(/*css*/ `
 		display: block;
 	}
 
-	person-card-container {
+	a {
 		display: flex;
 		flex-direction: column;
 		gap: 0.2em;
 		aspect-ratio: 1 / 1;
 		width: 100px;
 		align-items: center;
+
+		/* unset anchor styles */
+		text-decoration: none;
+		color: inherit;
 	}
 
 	person-card-name {
@@ -40,16 +44,17 @@ class PersonCard extends HTMLElement {
 
 	connectedCallback() {
 		const name = this.getAttribute('name');
+		const personId = this.getAttribute('personId');
 		const lastName = name.split(' ').at(-1);
 		const truncatedName = name.replace(lastName, lastName.at(0));
 		this.shadowRoot.innerHTML = /*html*/ `
-			<person-card-container>
+			<a href="/person/${personId}">
 				<wa-avatar label="${this.getAttribute('name')}" image="${this.getAttribute('avatar')}"></wa-avatar>
 				<person-card-name>${truncatedName}</person-card-name>
 				<wa-badge appearance="filled-outlined" variant="neutral" pill>
 					<wa-format-date month="short" day="numeric" year="numeric" date="${this.getAttribute('date')}"></wa-format-date>
 				</wa-badge>
-			</person-card-container>
+			</a>
 		`;
 	}
 }

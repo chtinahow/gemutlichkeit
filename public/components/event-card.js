@@ -6,13 +6,17 @@ eventCardStyleSheet.replaceSync(/*css*/ `
 		--avatar-border: solid 2px var(--wa-color-surface-default);
 	}
 
-	event-card-container {
+	a {
 		display: flex;
 		flex-direction: column;
 		gap: 1em;
 		aspect-ratio: 1 / 1;
 		width: 150px;
 		align-items: center;
+
+		/* unset anchor styles */
+		text-decoration: none;
+		color: inherit;
 	}
 
 	event-card-name {
@@ -61,8 +65,9 @@ class EventCard extends HTMLElement {
 	}
 
 	connectedCallback() {
+		const eventId = this.getAttribute('eventId');
 		this.shadowRoot.innerHTML = /*html*/ `
-			<event-card-container>
+			<a href="event/${eventId}">
 				<event-card-name>${this.getAttribute('name')}</event-card-name>
 				<avatar-group>
 					<slot></slot>
@@ -75,7 +80,7 @@ class EventCard extends HTMLElement {
 						<wa-format-date month="short" day="numeric" year="numeric" date="${this.getAttribute('date')}"></wa-format-date>
 					</wa-badge>
 				</badge-group>
-			</event-card-container>
+			</a>
 		`;
 
 		const inviteeBadge = this.shadowRoot.getElementById('invitee-count');
